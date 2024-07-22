@@ -1,0 +1,167 @@
+.DS_Store
+archive/
+repo/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.build/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# PyInstaller
+# Usually these files are written by a python script from a template
+# before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage/
+*.coverage
+*.egg
+*.eggs
+*.env
+*.env.bak
+*.pyc
+.cache/
+*.pytest_cache/
+.installed.cfg
+*.egg-info/
+
+# MyPy
+.mypy_cache/
+
+# Pyre type checker
+.pyre/
+
+# Pytype static type analyzer
+.pytype/
+
+# Env files
+.env
+.envrc
+.mr.developer.cfg
+.python-version
+
+# Pycharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Sublime Text
+sublime-project
+sublime-workspace
+
+# Visual Studio Code - Mac
+.vscode/
+
+# Visual Studio Code - Windows
+.vscode/*
+
+# PyCharm
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/vcs.xml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+.idea/
+.idea/modules.xml
+.idea/*.name
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/httpRequests
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/*.iml
+*.iws
+.idea/libraries/
+.idea/inspectionProfiles/
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pytest
+.pytest_cache/
+
+# Anaconda
+.env/
+
+# VS Code
+.vscode/
+.history
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# Sphinx documentation
+docs/_build/
+
+# Flask
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+dmypy.json
+dmypy.json.*/
