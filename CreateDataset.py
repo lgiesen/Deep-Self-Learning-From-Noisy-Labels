@@ -15,12 +15,26 @@ with open(dataset_noisy, 'r') as f:
 df = pd.DataFrame(data, columns=['image_path', 'label'])
 
 # Split the dataset
-train_size = 47570
-val_size = 14313
-test_size = 10526
+train_ratio = 0.65
+val_ratio = 0.20
+test_ratio = 0.15
+# The ratio was set by getting the ratios of the dataset in the paper 
+# Deep Self-Learning From Noisy Labels by Han et al. (2019)
+# train_size = 47570
+# val_size = 14313
+# test_size = 10526
+# total = train_size + val_size + test_size
+# print(train_size/total, val_size/total, test_size/total)
+# 0.6569625322818986 0.19766879807758703 0.14536866964051431
 
-train_data, temp_data = train_test_split(df, train_size=train_size, random_state=42, stratify=df['label'])
-val_data, test_data = train_test_split(temp_data, train_size=val_size, test_size=test_size, random_state=42, stratify=temp_data['label'])
+# First split to get train and temp (val + test)
+train_data, temp_data = train_test_split(df, train_size=train_ratio, random_state=42, stratify=df['label'])
+
+# Calculate relative proportions for val and test sets from the temp set
+temp_val_ratio = val_ratio / (val_ratio + test_ratio)
+temp_test_ratio = test_ratio / (val_ratio + test_ratio)
+# Second split to get validation and test sets
+val_data, test_data = train_test_split(temp_data, train_size=temp_val_ratio, random_state=42, stratify=temp_data['label'])
 
 # Save the datasets
 train_data.to_csv(dataset_train_path, sep=' ', index=False, header=False)
