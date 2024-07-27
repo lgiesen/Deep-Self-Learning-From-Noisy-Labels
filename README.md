@@ -21,6 +21,8 @@ This seminar thesis verifies the Self-Learning with Multi-Prototypes (SMP) appro
 - **CreateDataset.py**: Create the dataset
 - **LoadDataset.py**: Load the dataset
 - **DataExploration.ipynb**: Explore the original data and dataset
+- **RegularModel.ipynb**: Train and evaluate the model with a standard approach
+- **SMPModel.ipynb**: Train and evaluate the model based on the SMP approach
 <!-- The main script orchestrates the data collection, preprocessing, sentiment analysis, and visualization processes. -->
         
 ## License
