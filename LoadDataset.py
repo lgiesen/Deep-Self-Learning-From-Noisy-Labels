@@ -26,4 +26,4 @@ class CustomImageDataset(Dataset):
         label = int(self.image_labels.iloc[idx, 1])
         if self.transform:
             image = self.transform(image)
-        return image, label, img_rel_path
+        return image, label
