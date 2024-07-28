@@ -31,3 +31,4 @@ gamma=0.1
 alpha=0.5
 randomly_samples_img_size=1280
 num_prototypes=8
+similarity_threshold=0.5
