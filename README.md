@@ -16,6 +16,7 @@ This seminar thesis verifies the Self-Learning with Multi-Prototypes (SMP) appro
 ## Files Description
 
 <!-- - **.env**: Reused local variables specific to your OS -->
+- **.env**: Local runtime-specific variables
 - **config.py**: Reused global variables
 <!-- - **requirements.txt**: Lists all Python libraries required to run the scripts -->
 - **CreateDataset.py**: Create the dataset
