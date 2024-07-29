@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 
 if 'COLAB_GPU' in os.environ:
     # google colab
-    dataset_root = '../content/drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/'
+    dataset_root = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/'
 else:
     # local
     dataset_root = '/Volumes/Festplatte/MATIML/data/clothing1M/'
