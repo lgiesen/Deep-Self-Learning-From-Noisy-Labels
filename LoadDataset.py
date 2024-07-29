@@ -25,7 +25,8 @@ class CustomImageDataset(Dataset):
             image = Image.open(img_path).convert('RGB')
         except (FileNotFoundError, UnidentifiedImageError):
             self.missing_images += 1
-            return None  # Returning None for missing images
+            # Return a placeholder value to avoid crashing
+            return None, None, idx
 
         label = int(self.image_labels.iloc[idx, 1])
         if self.transform:
