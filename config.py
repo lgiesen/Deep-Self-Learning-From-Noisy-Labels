@@ -6,12 +6,19 @@ import os
 
 from dotenv import load_dotenv
 
+# define env file path based on environment
+if 'COLAB_GPU' in os.environ:
+    # google colab
+    env_path = '"../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env"'
+else:
+    # local
+    env_path = '.env'
 load_dotenv()
 dataset_root = os.getenv('DATASETROOT')
 # set other filepaths
 dataset_img = f'{dataset_root}images/'
 dataset_masks = f'{dataset_root}annotations/'
-dataset_noisy = f'{dataset_masks}noisy_label_kv.txt'
+dataset = f'{dataset_masks}clean_label_kv.txt' # f'{dataset_masks}noisy_label_kv.txt'
 dataset_train_path = f'{dataset_root}train_dataset.csv'
 dataset_val_path = f'{dataset_root}val_dataset.csv'
 dataset_test_path = f'{dataset_root}test_dataset.csv'
