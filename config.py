@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 # define env file path based on environment
 if 'COLAB_GPU' in os.environ:
     # google colab
-    env_path = '"../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env"'
+    env_path = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env'
 else:
     # local
     env_path = '.env'
