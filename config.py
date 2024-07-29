@@ -4,8 +4,6 @@ This file comprises global variables, which are used by multiple files.
 # load environment file
 import os
 
-from dotenv import load_dotenv
-
 # did not work somehow - to be checked later
 # # define env file path based on environment
 # if 'COLAB_GPU' in os.environ:
@@ -13,6 +11,7 @@ from dotenv import load_dotenv
 #     env_path = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env'
 # else:
 #     # local
+#     from dotenv import load_dotenv
 #     env_path = '.env'
 # load_dotenv()
 # dataset_root = os.getenv('DATASETROOT')
@@ -26,9 +25,9 @@ else:
 
 
 # set other filepaths
-dataset_img = f'{dataset_root}images/'
+dataset_img = f'{dataset_root}extracted_images/'
 dataset_masks = f'{dataset_root}annotations/'
-dataset = f'{dataset_masks}clean_label_kv.txt' # f'{dataset_masks}noisy_label_kv.txt'
+dataset = f'{dataset_masks}noisy_label_kv.txt' # or clean: clean_label_kv
 dataset_train_path = f'{dataset_root}train_dataset.csv'
 dataset_val_path = f'{dataset_root}val_dataset.csv'
 dataset_test_path = f'{dataset_root}test_dataset.csv'
