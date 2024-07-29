@@ -6,15 +6,25 @@ import os
 
 from dotenv import load_dotenv
 
-# define env file path based on environment
+# did not work somehow - to be checked later
+# # define env file path based on environment
+# if 'COLAB_GPU' in os.environ:
+#     # google colab
+#     env_path = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env'
+# else:
+#     # local
+#     env_path = '.env'
+# load_dotenv()
+# dataset_root = os.getenv('DATASETROOT')
+
 if 'COLAB_GPU' in os.environ:
     # google colab
-    env_path = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env'
+    env_path = '../content/drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/'
 else:
     # local
-    env_path = '.env'
-load_dotenv()
-dataset_root = os.getenv('DATASETROOT')
+    dataset_root = '/Volumes/Festplatte/MATIML/data/clothing1M/'
+
+
 # set other filepaths
 dataset_img = f'{dataset_root}images/'
 dataset_masks = f'{dataset_root}annotations/'
