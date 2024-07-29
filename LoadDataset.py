@@ -37,7 +37,3 @@ class CustomImageDataset(Dataset):
             image = self.transform(image)
         logger.info(f"Successfully loaded image {img_path} at index {idx}")
         return image, label
-
-def collate_fn(batch):
-    batch = list(filter(lambda x: x is not None, batch))
-    return torch.utils.data.dataloader.default_collate(batch)
