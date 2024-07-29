@@ -1,7 +1,7 @@
 import os
 
 import pandas as pd
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 from torch.utils.data import Dataset
 
 from config import dataset_root
@@ -23,7 +23,7 @@ class CustomImageDataset(Dataset):
         img_path = os.path.join(self.folder_path, img_rel_path)
         try:
             image = Image.open(img_path).convert('RGB')
-        except FileNotFoundError:
+        except (FileNotFoundError, UnidentifiedImageError):
             self.missing_images += 1
             return None  # Returning None for missing images
 
