@@ -28,7 +28,7 @@ class CustomImageDataset(Dataset):
         for i in range(10):
             tar_path = os.path.join(self.tar_dir, f"{i}.tar")
             if os.path.exists(tar_path):
-                self.tar_files[i] = tarfile.open(tar_path, 'r')
+                self.tar_files[i] = tar_path
             else:
                 logger.error(f"Tar file {tar_path} does not exist")
 
@@ -39,15 +39,19 @@ class CustomImageDataset(Dataset):
         img_rel_path = self.image_labels.iloc[idx, 0]
         tar_index = int(img_rel_path.split('/')[0])  # Assuming the first part of the path indicates the tar file index
         try:
-            if tar_index not in self.tar_files:
+            tar_path = self.tar_files.get(tar_index)
+            if tar_path is None:
                 raise FileNotFoundError(f"Tar file for index {tar_index} not found")
-            img_file = self.tar_files[tar_index].extractfile(img_rel_path)
-            if img_file is None:
-                raise FileNotFoundError(f"{img_rel_path} not found in tar archive {tar_index}")
-            image = Image.open(io.BytesIO(img_file.read())).convert('RGB')
+
+            with tarfile.open(tar_path, 'r') as tar:
+                img_file = tar.extractfile(img_rel_path)
+                if img_file is None:
+                    raise FileNotFoundError(f"{img_rel_path} not found in tar archive {tar_index}")
+                image = Image.open(io.BytesIO(img_file.read())).convert('RGB')
         except (IOError, OSError, FileNotFoundError) as e:
             logger.error(f"Failed to load image {img_rel_path} at index {idx}: {e}")
             return None, None  # Return None if image loading fails
+
         label = int(self.image_labels.iloc[idx, 1])
         if self.transform:
             image = self.transform(image)
