@@ -19,6 +19,7 @@ import os
 if 'COLAB_GPU' in os.environ:
     # google colab
     dataset_root = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/'
+    shared_folder_path = '/content/drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/images'
 else:
     # local
     dataset_root = '/Volumes/Festplatte/MATIML/data/clothing1M/'
