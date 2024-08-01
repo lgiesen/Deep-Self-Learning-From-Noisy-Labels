@@ -26,7 +26,7 @@ else:
 
 
 # set other filepaths
-dataset_img = f'{dataset_root}images/'
+dataset_img = f'{dataset_root}extracted_images/'
 dataset_masks = f'{dataset_root}annotations/'
 dataset = f'{dataset_masks}noisy_label_kv.txt' # or clean: clean_label_kv
 dataset_train_path = f'{dataset_root}train_dataset.csv'
