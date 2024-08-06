@@ -34,6 +34,7 @@ dataset_val_path = f'{dataset_root}val_dataset.csv'
 dataset_test_path = f'{dataset_root}test_dataset.csv'
 # set dataset variables
 class_names = [line.strip() for line in open(f'{dataset_masks}category_names_eng.txt')]
+num_classes = len(class_names)
 batch_size=128
 # model variables
 num_epochs=15
@@ -46,6 +47,6 @@ step_size=5
 gamma=0.1
 # weight factor alpha to balance the loss function for the original and corrected data
 alpha=0.5
-randomly_samples_img_size=1280
+randomly_sampled_img_count=1280
 num_prototypes=8
 similarity_threshold=0.5
