@@ -1,7 +1,7 @@
 import os
 import shutil
 
-from config import dataset_noisy, dataset_root
+from config import dataset, dataset_root
 
 
 def copy_files(source_file, destination_folder):
@@ -22,4 +22,4 @@ def copy_files(source_file, destination_folder):
 
 if __name__ == "__main__":
     destination_folder = f'{dataset_root}GoogleDrive_upload/images/'
-    copy_files(dataset_noisy, destination_folder)
+    copy_files(dataset, destination_folder)
