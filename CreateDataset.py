@@ -5,13 +5,15 @@ from config import *
 
 # Read the file and process each line
 data = []
-with open(dataset_noisy, 'r') as f:
+with open(dataset, 'r') as f:
     lines = f.readlines()
     for line in lines:
         path, label = line.strip().split()
+        # the filepath needs to be changed because the images are extraced into the extracted_images directory
+        path = path.replace("images", "extracted_images")
         data.append((path, int(label)))
 
-# Convert the data into a DataFrame
+# Convert the data into     a DataFrame
 df = pd.DataFrame(data, columns=['image_path', 'label'])
 
 # Split the dataset
