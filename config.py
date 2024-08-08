@@ -20,7 +20,7 @@ if 'COLAB_GPU' in os.environ:
     # google colab
     dataset_root = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/'
     shared_folder_path = '/content/drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/images/'
-    checkpoint_path = f'{dataset_root}checkpoints/'
+    checkpoint_path = f'{dataset_root}checkpoints/'.replace("../","/content/")
 else:
     # local
     dataset_root = '/Volumes/Festplatte/MATIML/data/clothing1M/'
@@ -50,3 +50,4 @@ gamma=0.1
 alpha=0.5
 randomly_sampled_img_count=1280
 num_prototypes=8
+threshold_percentile=40
