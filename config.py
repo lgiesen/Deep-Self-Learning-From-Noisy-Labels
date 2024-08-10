@@ -34,6 +34,8 @@ dataset_train_path = f'{dataset_root}train_dataset.csv'
 dataset_val_path = f'{dataset_root}val_dataset.csv'
 dataset_test_path = f'{dataset_root}test_dataset.csv'
 dataset_sample_path = f'{dataset_root}sample_dataset.csv'
+writer_path_standard = dataset_root.replace("..", "/content") + 'runs/resnet50_standard'
+writer_path_smp = dataset_root.replace("..", "/content") + 'runs/resnet50_smp'
 # set dataset variables
 class_names = [line.strip() for line in open(f'{dataset_masks}category_names_eng.txt')]
 num_classes = len(class_names)
