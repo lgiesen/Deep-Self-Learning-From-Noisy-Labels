@@ -48,6 +48,6 @@ step_size=5
 gamma=0.1
 # weight factor alpha to balance the loss function for the original and corrected data
 alpha=0.5
-randomly_sampled_img_count=1280
+randomly_sampled_img_count=320
 num_prototypes=8
 threshold_percentile=40
