@@ -15,10 +15,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class CustomImageDataset(Dataset):
-    def __init__(self, file_path, img_dir=dataset_root, transform=None):
-        self.image_labels = pd.read_csv(file_path, sep=' ', header=None, names=['image_path', 'label'])
+    def __init__(self, file_path, img_dir=dataset_root, transform=None, sampling=False):
         self.img_dir = img_dir
         self.transform = transform
+        self.sampling = sampling
+        self.image_labels = pd.read_csv(file_path, sep=' ', header=None, names=['image_path', 'label'])
 
     def __len__(self):
         return len(self.image_labels)
@@ -31,9 +32,10 @@ class CustomImageDataset(Dataset):
         except (IOError, OSError) as e:
             logger.error(f"Failed to load image {img_path} at index {idx}: {e}")
             return None, None, idx  # Return None if image loading fails
-
-        label = int(self.image_labels.iloc[idx, 1])
+        if not self.sampling:
+            label = int(self.image_labels.iloc[idx, 1])
         if self.transform:
             image = self.transform(image)
-
-        return image, label
+        if not self.sampling:
+            return image, label
+        return image
