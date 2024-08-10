@@ -9,8 +9,6 @@ with open(dataset, 'r') as f:
     lines = f.readlines()
     for line in lines:
         path, label = line.strip().split()
-        # the filepath needs to be changed because the images are extraced into the extracted_images directory
-        path = path.replace("images", "extracted_images")
         data.append((path, int(label)))
 
 # Convert the data into     a DataFrame
