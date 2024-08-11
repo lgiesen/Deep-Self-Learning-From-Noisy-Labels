@@ -13,7 +13,7 @@ with open(dataset, 'r') as f:
         path = path.replace("images", "extracted_images")
         data.append((path, int(label)))
 
-# Convert the data into     a DataFrame
+# Convert the data into a DataFrame
 df = pd.DataFrame(data, columns=['image_path', 'label'])
 
 # Split the dataset
@@ -45,5 +45,23 @@ val_data, test_data = train_test_split(temp_data, train_size=temp_val_ratio, ran
 # Save the datasets
 train_data.to_csv(dataset_train_path, sep=' ', index=False, header=False)
 val_data.to_csv(dataset_val_path, sep=' ', index=False, header=False)
-test_data.to_csv(dataset_test_path, sep=' ', index=False, header=False)
+# test_data.to_csv(dataset_test_path, sep=' ', index=False, header=False)
+
+# Update test dataset
+data = []
+with open(dataset_clean, 'r') as f:
+    lines = f.readlines()
+    for line in lines:
+        path, label = line.strip().split()
+        # the filepath needs to be changed because the images are extracted into the extracted_images directory
+        path = path.replace("images", "extracted_images")
+        data.append((path, int(label)))
+
+# Convert the data into a DataFrame
+df = pd.DataFrame(data, columns=['image_path', 'label'])
+
+# Save the datasets
+df.to_csv(dataset_test_path, sep=' ', index=False, header=False)
+
 print("Dataset splits created and saved successfully.")
+
