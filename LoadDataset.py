@@ -36,6 +36,5 @@ class CustomImageDataset(Dataset):
             label = int(self.image_labels.iloc[idx, 1])
         if self.transform:
             image = self.transform(image)
-        if not self.sampling:
-            return image, label
-        return image
+        # only return image if it is sampling, else return labels as well
+        return image if self.sampling else (image, label)
