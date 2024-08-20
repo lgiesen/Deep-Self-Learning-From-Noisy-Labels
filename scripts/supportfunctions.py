@@ -8,7 +8,7 @@ from config import class_names
 def visualize_image(img, label=None):
     """
     Displays an image with a label on top.
-    
+
     Parameters:
     img (torch.Tensor): The image tensor with shape [3, H, W] where H is height and W is width.
     label (str): The label to be displayed on top of the image.
@@ -29,6 +29,7 @@ def visualize_image(img, label=None):
     plt.axis('off')  # Hide axes for a cleaner look
     plt.show()
 
+"""
 #compare first image of sample_loader and sample_dataset
 class_id=5
 sample_dataset, sample_loader = sample_images(class_id)
@@ -36,7 +37,7 @@ visualize_image(next(iter(sample_loader))[0], class_id)
 visualize_image(sample_dataset[0], class_id)
 visualize_image(next(iter(train_loader))[0][0], class_id)
 visualize_image(train_dataset[0][0], class_id)
-
+"""
 # Function to calculate accuracy
 def calculate_accuracy(outputs, labels):
     _, predicted = outputs.max(1)
@@ -85,6 +86,17 @@ def load_checkpoint(model, optimizer, scheduler, checkpoint_path):
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
     return checkpoint['epoch'], checkpoint['best_val_loss'], checkpoint['epochs_no_improve']
+
+"""
+# load with:
+from config import checkpoint_path
+start_epoch = 0
+current_checkpoint_path = os.path.join(checkpoint_path, f'checkpoint_epoch_{start_epoch}.pth')
+if os.path.exists(current_checkpoint_path):
+    start_epoch, best_val_loss, epochs_no_improve = load_checkpoint(model, optimizer, scheduler, current_checkpoint_path)
+    start_epoch += 1  # start from the next epoch
+    print(f'Resumed from checkpoint {current_checkpoint_path}')
+"""
 
 """Evaluation"""
 def load_model(model_path, num_classes):
