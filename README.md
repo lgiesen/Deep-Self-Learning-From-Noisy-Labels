@@ -46,4 +46,4 @@ Prerequisite: You require the data from [Tong](mailto:tong.xiao.work@gmail.com) 
 3. Execute the code from `scripts/createdataset.py` to generate the dataset.
 4. Train and evaluate the models using the notebooks or scripts.
     
-    The trained standard model can be found in [model/standard.pth](https://github.com/lgiesen/Deep-Self-Learning-From-Noisy-Labels/blob/main/model/standard.pth)
+    The trained [standard model](https://dropover.cloud/0d796d) can be downloaded until November 2024. After that please contact [me](mailto:contact@leogiesen.de). 
