@@ -25,7 +25,7 @@ This seminar thesis evaluats the effectiveness and efficiency of the Self-Learni
     - **standardapproach.py**: Train and evaluate the model with a standard approach
     - **smpapproach.py**: Train and evaluate the model based on the SMP approach
     - **supportfunctions.py**: Define support functions used by both standard and SMP approach
-- **thesis_code/**: Extracted SMP code for the seminar thesis
+- **thesis/**: Seminar thesis and the extracted SMP code for it
 - **.env**: Local runtime-specific variables
 - **config.py**: Reused global variables
 <!-- - **requirements.txt**: Lists all Python libraries required to run the scripts -->
