@@ -4,27 +4,21 @@ This file comprises global variables, which are used by multiple files.
 # load environment file
 import os
 
-# did not work somehow - to be checked later
-# # define env file path based on environment
-# if 'COLAB_GPU' in os.environ:
-#     # google colab
-#     env_path = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env'
-# else:
-#     # local
-#     from dotenv import load_dotenv
-#     env_path = '.env'
-# load_dotenv()
-# dataset_root = os.getenv('DATASETROOT')
-
+# define env file path based on environment
 if 'COLAB_GPU' in os.environ:
     # google colab
+    env_path = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/env'
     dataset_root = '../drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/'
     shared_folder_path = '/content/drive/MyDrive/Colab_Notebooks/Deep_Self_Learning_From_Noisy_Labels/images/'
-    checkpoint_path = f'{dataset_root}checkpoints/'.replace("../","/content/")
 else:
     # local
-    dataset_root = '/Volumes/Festplatte/MATIML/data/clothing1M/'
+    from dotenv import load_dotenv
+    env_path = '.env'
+    load_dotenv()
+    dataset_root = os.getenv('DATASETROOT')
+    # the shared folder (shared_folder_path) is only possible in Google Colab as the data is shared there
 
+checkpoint_path = f'{dataset_root}checkpoints/'.replace("../","/content/")
 
 # set other filepaths
 dataset_img = f'{dataset_root}extracted_images/'
