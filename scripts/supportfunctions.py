@@ -1,10 +1,3 @@
-"""General Purpose"""
-def free_up_ram():
-    # remove unused variables to free up ram
-    import gc
-    gc.collect()
-    torch.cuda.empty_cache()
-
 """Testing"""
 import matplotlib.pyplot as plt
 import torch
@@ -105,12 +98,10 @@ def load_model(model_path, num_classes):
     from config import dataset
     from config import model_path_standard as model_path
     from config import num_classes
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
-
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     data = pd.read_csv(dataset.replace("../","/content/"), header=None, sep=' ', usecols=[1], names=['label'])
     labels = data['label'].values
-    label_counts = Counter(labels)
     class_weights = compute_class_weight('balanced', classes=np.unique(labels), y=labels)
     class_weights = torch.tensor(class_weights, dtype=torch.float).to(device)
     criterion = torch.nn.CrossEntropyLoss(weight=class_weights)
@@ -120,4 +111,4 @@ def load_model(model_path, num_classes):
     model.load_state_dict(torch.load(model_path))
     model = model.to(device)
     model.eval()
-    return model, criterion
+    return model, criterion, device
