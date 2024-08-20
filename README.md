@@ -18,8 +18,13 @@ This seminar thesis evaluats the effectiveness and efficiency of the Self-Learni
     - **standardapproach.ipynb**: Train and evaluate the model with a standard approach
     - **smpapproach.ipynb**: Train and evaluate the model based on the SMP approach
 - **scripts/**: Dataset generation, standard and SMP approach code in Python
-    - **createdataset.py**: Create the dataset
-    - **loaddataset.py**: Load the dataset
+    - **data/**: Create the dataset
+        - **createdataset.py**: Create the dataset
+        - **exportdataset.py**: Export the dataset
+        - **loaddataset.py**: Load the dataset
+    - **standardapproach.py**: Train and evaluate the model with a standard approach
+    - **smpapproach.py**: Train and evaluate the model based on the SMP approach
+    - **supportfunctions.py**: Define support functions used by both standard and SMP approach
 - **thesis_code/**: Extracted SMP code for the seminar thesis
 - **.env**: Local runtime-specific variables
 - **config.py**: Reused global variables
