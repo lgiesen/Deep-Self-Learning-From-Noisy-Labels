@@ -1,9 +1,7 @@
 """General Purpose"""
-# remove unused variables to free up ram
-import gc
-
-
 def free_up_ram():
+    # remove unused variables to free up ram
+    import gc
     gc.collect()
     torch.cuda.empty_cache()
 
