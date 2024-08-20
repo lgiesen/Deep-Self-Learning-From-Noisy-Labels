@@ -1,5 +1,6 @@
-[![Python 3.10](https://img.shields.io/badge/python-3.10.8-blue)](https://www.python.org/downloads/release/python-31013/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
-<!-- ![GitHub version](https://img.shields.io/github/v/release/lgiesen/Deep-Self-Learning-From-Noisy-Labels?color=green&include_prereleases) -->
+[![Python 3.10.8](https://img.shields.io/badge/python-3.10.8-blue)](https://www.python.org/downloads/release/python-31013/) 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+![GitHub Version](https://img.shields.io/github/v/release/lgiesen/Deep-Self-Learning-From-Noisy-Labels?color=green&include_prereleases)
 # Self-Learning With Multiple Prototypes (SMP) - Deep Self-Learning From Noisy Labels
 
 
